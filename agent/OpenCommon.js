@@ -53,7 +53,7 @@ Java.perform(function () {
                 console.log("dex_size :" + dex_size);
                 //dump dex 到/data/data/pkg/目录下
                 
-                var file = new File("/data/data/com.lite.lanxin/" + dex_size + ".dex", "wb");
+                var file = new File("/data/data/packageName/" + dex_size + ".dex", "wb");
                 file.write(Memory.readByteArray(begin, dex_size));
                 file.flush();
                 file.close();
