@@ -66,32 +66,47 @@ export function traceMethod(className:string,methodName:string,isPrintParameter:
     });
 }
 
-function printMap(map:any){
+
+export function printMap(map:any){
+
+    if(map==null || map.size()==0){
+      console.log("this map is null or map's size is zero !!!");
+      return;
+    }
     var iterator = map.entrySet().iterator();
     while(iterator.hasNext()){
         var entry = Java.cast(iterator.next(),Java.use('java.util.HashMap$Node'));
         console.log(entry.getKey()+": "+entry.getValue());   
     }
+}
+  
+export function printSet(set:any){
+
+  if(set==null || set.size()==0){
+    console.log("this set is null or set's size is zero !!!");
+    return;
   }
-  
-  function printSet(set:any){
-  
     var iterator=set.iterator();
     while (iterator.hasNext()) {
       console.log(iterator.next());
     }
   
+}
+  
+  
+export function printList(list:any){
+
+  if(list==null || list.size()==0){
+    console.log("this list is null or list's size is zero !!!");
+    return;
   }
-  
-  
-  function printList(list:any){
     for(var i=0;i<list.size();i++){
       console.log(list.get(i));
     }
-  }
+}
   
   
-  function printDeclaredMethods(className:any){
+export function printDeclaredMethods(className:any){
   
     try {
       var clz  = Java.use(className);
@@ -108,4 +123,5 @@ function printMap(map:any){
       }
     }
   
-  }
+}
+
